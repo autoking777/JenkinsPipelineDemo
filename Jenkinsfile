@@ -7,7 +7,7 @@ pipeline{
     stage('1.clone'){
       steps{
             sh "echo clonning the latest version of the code" 
-            https://github.com/autoking777/JenkinsPipelineDemo.git
+            git branch: 'main', url: 'https://github.com/autoking777/JenkinsPipelineDemo.git'
             sh "echo clonning successful"
       }
     }  

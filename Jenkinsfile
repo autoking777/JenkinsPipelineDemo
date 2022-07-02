@@ -10,7 +10,7 @@ pipeline{
   stages {
     stage('1.CodeClone'){
       steps{
-          git branch: 'stage', credentialsId: 'GitHubCredentials', url: 'https://github.com/LandmakTechnology/web-app'
+          https://github.com/autoking777/JenkinsPipelineDemo.git
       }
     } 
     stage('2.mavenBuild'){

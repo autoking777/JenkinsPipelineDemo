@@ -1,12 +1,6 @@
 //declarative pipeline
 pipeline{
   agent any  
-  tools {
-    maven "maven3.8.4"
-  }
-  triggers {
-  pollSCM '* * * * * '
-}
   stages {
     stage('1.CodeClone'){
       steps{

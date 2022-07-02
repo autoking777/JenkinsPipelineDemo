@@ -1,28 +1,22 @@
-//declarative pipeline
 pipeline{
-  agent any  
-  stages {
-    stage('1.CodeClone'){
-      steps{
-          https://github.com/autoking777/JenkinsPipelineDemo.git
-      }
-    } 
-    stage('2.mavenBuild'){
-      steps{
-      sh "mvn clean package"
-      } 
-    }
-    stage('3.CodeQuality') {
-      steps{
-      sh "echo reports done"
-      //sh "mvn sonar:sonar"
-      } 
-    }
-    stage('4.uploadToNexus'){
-      steps{
-      sh "echo artifacts uploaded"
-      //sh "mvn deploy"
-      } 
-    }
-   } 
+  agent any 
+  tools{
+    maven "maven3.8.4"
   }
+  stages{
+    stage('1.clone'){
+      steps{
+            sh "echo clonning the latest version of the code" 
+            https://github.com/autoking777/JenkinsPipelineDemo.git
+            sh "echo clonning successful"
+      }
+    }  
+      stage('2.Build'){
+       steps{
+        sh "echo validation, compilation, testing and package"
+        sh "echo testing successful and ready to package"
+        sh "mvn clean package"
+      }
+      }
+  }
+}
